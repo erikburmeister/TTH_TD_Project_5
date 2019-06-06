@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+            <div class="entry-list">
+                {% for entry in entries %}
+                <article>
+                    <h2><a href="{{ url_for('detail', slug=entry.slug) }}">{{ entry.title }}</a></h2>
+                    {{ entry.date.strftime('%b %d, %Y') }}<br>
+                    user: {{ entry.user_id.username }}<br>
+                    {% for tag in entry.tags.split(", ") %}
+                        |<a href="{{ url_for('tags_page') }}">{{ tag }}</a>|
+                    {% endfor %}
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

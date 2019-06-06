@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% from 'macros.html' import render_field %}
+
+{% block content %}
+    <div class="container">
+        <div class="edit-entry">
+            <h2>Edit Entry</h2>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                {{ render_field(form.title) }}
+                {{ render_field(form.date) }}
+                {{ render_field(form.time_spent) }}
+                {{ render_field(form.what_you_learned) }}
+                {{ render_field(form.resources_to_remember) }}
+                {{ render_field(form.tags) }}
+                <input type="submit" value="Publish Entry" class="button">
+                <a href="{{ url_for('edit', slug=entry.slug) }}" class="button button-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

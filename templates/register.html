@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% from 'macros.html' import render_field %}
+
+{% block content %}
+    <div class="container">
+        <div class="new-entry">
+            <h2>Register</h2>
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                {{ render_field(form.username) }}
+                {{ render_field(form.email) }}
+                {{ render_field(form.password) }}
+                {{ render_field(form.confirm_password) }}
+                <input type="submit" value="Sign Up" class="button">
+                <br><br>
+                Already have an account? <a href="{{ url_for('login') }}">Sign In</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
