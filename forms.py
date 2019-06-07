@@ -26,10 +26,10 @@ class LoginForm(Form):
 	remember_me = BooleanField("Remember Me")
 
 
-class Journal_Entry(Form):
+class JournalEntry(Form):
 	title = StringField("Title", validators=[DataRequired()])
-	date = DateField("Date", validators=[DataRequired()])
-	time_spent = IntegerField("Time Spent", validators=[DataRequired()])
+	date = DateField("Date (Format: YYYY/MM/DD)", validators=[DataRequired()])
+	time_spent = IntegerField("Time Spent (Format:HH)", validators=[DataRequired()])
 	what_you_learned = TextAreaField("What You Learned", validators=[DataRequired()])
 	resources_to_remember = TextAreaField("Resources to Remember", validators=[DataRequired()])
 	tags = StringField("Tags", validators=[DataRequired()])
